@@ -4,7 +4,6 @@ import CryptoJS from 'crypto-js';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter } from '@angular/core';
-import { stat } from 'fs';
 
 @Injectable({
   providedIn: 'root'

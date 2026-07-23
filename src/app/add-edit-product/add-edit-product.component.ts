@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../service/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-add-edit-product',
