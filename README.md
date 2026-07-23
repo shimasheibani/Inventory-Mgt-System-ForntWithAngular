@@ -1,59 +1,59 @@
-# ShippingFrontend
+# Warehouse Management System — Angular Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
+The Angular client for the [Spring Boot Warehouse/Inventory Management System](https://github.com/shimasheibani/Inventory-Mgt-System-SpringBoot) backend. Provides the UI for authentication, inventory management, and transaction tracking.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- JWT login / registration, with the token and role encrypted (AES via crypto-js) before being stored in `localStorage`
+- Route guards restricting authenticated-only and admin-only pages
+- Product management with image upload
+- Category and supplier management (create, list, update, delete)
+- Purchase and sell transaction forms
+- Transaction history with search and pagination
+- Dashboard overview
+
+## Tech Stack
+
+Angular 19, TypeScript, RxJS, crypto-js.
+
+## Getting Started
+
+### Prerequisites
+- Node.js
+- The [backend API](https://github.com/shimasheibani/Inventory-Mgt-System-SpringBoot) running (defaults to `http://localhost:8080/api`)
+
+### Install
+
+```bash
+npm install
+```
+
+### Configure
+
+The backend base URL is set in `src/app/service/api.service.ts` (`BASE_URL`). Update it if your backend runs somewhere other than `http://localhost:8080/api`.
+
+### Run
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open `http://localhost:4200/` — the app reloads automatically on source changes.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Build
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Production artifacts are written to `dist/`.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Tests
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## License
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
