@@ -141,7 +141,7 @@ export class ApiService {
     });
   }
   updateProduct(formData:any):Observable<any>{
-    return this.http.put('${ApiService.BASE_URL}/products/update/',formData,{
+    return this.http.put(`${ApiService.BASE_URL}/products/update`,formData,{
       headers: this.getHeader(),
     });
   }
@@ -159,7 +159,7 @@ export class ApiService {
   }
   getAlltransactions(searchText: string):Observable<any>{
     return this.http.get(`${ApiService.BASE_URL}/transactions/all`,{
-      params: { searchText: searchText },
+      params: { searchBox: searchText },
       headers: this.getHeader(),
     });
   }
