@@ -4,7 +4,6 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../service/api.service';
 import { firstValueFrom } from 'rxjs';
-import { error } from 'console';
 
 @Component({
   selector: 'app-login',
