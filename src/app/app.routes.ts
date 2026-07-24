@@ -13,7 +13,6 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { RenderMode } from '@angular/ssr';
 
 export const routes: Routes = [
 {path:"login" , component: LoginComponent},
@@ -22,18 +21,18 @@ export const routes: Routes = [
 {path:"category", component: CategoryComponent, canActivate:[GuardService], data:{requiresAdmin:true}}, 
 
 {path:"supplier",component:SupplierComponent, canActivate:[GuardService],data:{requiresAdmin:true}},
-{path:"edit-supplier/:supplierId",component:AddEditSupplierComponent, canActivate:[GuardService],data:{requiresAdmin:true, RenderMode: 'no-prerendering'}},
+{path:"edit-supplier/:supplierId",component:AddEditSupplierComponent, canActivate:[GuardService],data:{requiresAdmin:true}},
 {path:"add-supplier",component:AddEditSupplierComponent, canActivate:[GuardService],data:{requiresAdmin:true}},
 
 {path:"product",component:ProductComponent, canActivate:[GuardService],data:{requiresAdmin:true}},
-{path:"edit-product/:productId",component:AddEditProductComponent, canActivate:[GuardService],data:{requireAdmin:true, RenderMode: 'no-prerendering'}},
+{path:"edit-product/:productId",component:AddEditProductComponent, canActivate:[GuardService],data:{requireAdmin:true}},
 {path:"add-product",component:AddEditProductComponent, canActivate:[GuardService],data:{requiresAdmin:true}},
 
 {path:"purchase", component: PurchaseComponent, canActivate:[GuardService]}, 
 {path:"sell", component: SellComponent, canActivate:[GuardService]}, 
 
 {path:"transaction", component:TransactionComponent , canActivate:[GuardService]}, 
-{path:"transaction-details/:transactionId", component: TransactionDetailsComponent, canActivate:[GuardService], data: { RenderMode: 'no-prerendering' }}, 
+{path:"transaction-details/:transactionId", component: TransactionDetailsComponent, canActivate:[GuardService]}, 
 
 
 {path:"profile", component: ProfileComponent, canActivate:[GuardService]}, 
