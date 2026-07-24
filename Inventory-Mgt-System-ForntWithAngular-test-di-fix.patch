@@ -1,0 +1,387 @@
+diff --git a/src/app/add-edit-product/add-edit-product.component.spec.ts b/src/app/add-edit-product/add-edit-product.component.spec.ts
+index 60b1cb9..228b122 100644
+--- a/src/app/add-edit-product/add-edit-product.component.spec.ts
++++ b/src/app/add-edit-product/add-edit-product.component.spec.ts
+@@ -1,4 +1,8 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
++import { ActivatedRoute } from '@angular/router';
+ 
+ import { AddEditProductComponent } from './add-edit-product.component';
+ 
+@@ -8,7 +12,13 @@ describe('AddEditProductComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [AddEditProductComponent]
++      imports: [AddEditProductComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting(),
++        provideRouter([]),
++        { provide: ActivatedRoute, useValue: { snapshot: { paramMap: { get: () => null } } } }
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/add-edit-supplier/add-edit-supplier.component.spec.ts b/src/app/add-edit-supplier/add-edit-supplier.component.spec.ts
+index f616940..b154e83 100644
+--- a/src/app/add-edit-supplier/add-edit-supplier.component.spec.ts
++++ b/src/app/add-edit-supplier/add-edit-supplier.component.spec.ts
+@@ -1,4 +1,7 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
+ 
+ import { AddEditSupplierComponent } from './add-edit-supplier.component';
+ 
+@@ -8,7 +11,12 @@ describe('AddEditSupplierComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [AddEditSupplierComponent]
++      imports: [AddEditSupplierComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting(),
++        provideRouter([])
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/app.component.spec.ts b/src/app/app.component.spec.ts
+index 1353488..42e5e91 100644
+--- a/src/app/app.component.spec.ts
++++ b/src/app/app.component.spec.ts
+@@ -1,10 +1,14 @@
+ import { TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
+ import { AppComponent } from './app.component';
+ 
+ describe('AppComponent', () => {
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+       imports: [AppComponent],
++      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
+     }).compileComponents();
+   });
+ 
+diff --git a/src/app/category/category.component.spec.ts b/src/app/category/category.component.spec.ts
+index 3c55953..eb00e8a 100644
+--- a/src/app/category/category.component.spec.ts
++++ b/src/app/category/category.component.spec.ts
+@@ -1,4 +1,6 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
+ 
+ import { CategoryComponent } from './category.component';
+ 
+@@ -8,7 +10,11 @@ describe('CategoryComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [CategoryComponent]
++      imports: [CategoryComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting()
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/dashboard/dashboard.component.spec.ts b/src/app/dashboard/dashboard.component.spec.ts
+index 30e39a2..2f8089b 100644
+--- a/src/app/dashboard/dashboard.component.spec.ts
++++ b/src/app/dashboard/dashboard.component.spec.ts
+@@ -1,4 +1,6 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
+ 
+ import { DashboardComponent } from './dashboard.component';
+ 
+@@ -8,7 +10,11 @@ describe('DashboardComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [DashboardComponent]
++      imports: [DashboardComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting()
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/login/login.component.spec.ts b/src/app/login/login.component.spec.ts
+index 18f3685..64a497c 100644
+--- a/src/app/login/login.component.spec.ts
++++ b/src/app/login/login.component.spec.ts
+@@ -1,4 +1,7 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
+ 
+ import { LoginComponent } from './login.component';
+ 
+@@ -8,7 +11,12 @@ describe('LoginComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [LoginComponent]
++      imports: [LoginComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting(),
++        provideRouter([])
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/pagination/pagination.component.spec.ts b/src/app/pagination/pagination.component.spec.ts
+index 0cdef5d..f5c19a4 100644
+--- a/src/app/pagination/pagination.component.spec.ts
++++ b/src/app/pagination/pagination.component.spec.ts
+@@ -8,7 +8,7 @@ describe('PaginationComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [PaginationComponent]
++      imports: [PaginationComponent],
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/product/product.component.spec.ts b/src/app/product/product.component.spec.ts
+index 50f1f88..2115e8e 100644
+--- a/src/app/product/product.component.spec.ts
++++ b/src/app/product/product.component.spec.ts
+@@ -1,4 +1,7 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
+ 
+ import { ProductComponent } from './product.component';
+ 
+@@ -8,7 +11,12 @@ describe('ProductComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [ProductComponent]
++      imports: [ProductComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting(),
++        provideRouter([])
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/profile/profile.component.spec.ts b/src/app/profile/profile.component.spec.ts
+index 17789ee..47f57d0 100644
+--- a/src/app/profile/profile.component.spec.ts
++++ b/src/app/profile/profile.component.spec.ts
+@@ -1,4 +1,6 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
+ 
+ import { ProfileComponent } from './profile.component';
+ 
+@@ -8,7 +10,11 @@ describe('ProfileComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [ProfileComponent]
++      imports: [ProfileComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting()
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/purchase/purchase.component.spec.ts b/src/app/purchase/purchase.component.spec.ts
+index 1d830c0..c1bc58b 100644
+--- a/src/app/purchase/purchase.component.spec.ts
++++ b/src/app/purchase/purchase.component.spec.ts
+@@ -1,4 +1,6 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
+ 
+ import { PurchaseComponent } from './purchase.component';
+ 
+@@ -8,7 +10,11 @@ describe('PurchaseComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [PurchaseComponent]
++      imports: [PurchaseComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting()
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/register/register.component.spec.ts b/src/app/register/register.component.spec.ts
+index 757b895..028cc06 100644
+--- a/src/app/register/register.component.spec.ts
++++ b/src/app/register/register.component.spec.ts
+@@ -1,4 +1,7 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
+ 
+ import { RegisterComponent } from './register.component';
+ 
+@@ -8,7 +11,12 @@ describe('RegisterComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [RegisterComponent]
++      imports: [RegisterComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting(),
++        provideRouter([])
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/sell/sell.component.spec.ts b/src/app/sell/sell.component.spec.ts
+index fe55974..8348a0b 100644
+--- a/src/app/sell/sell.component.spec.ts
++++ b/src/app/sell/sell.component.spec.ts
+@@ -1,4 +1,6 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
+ 
+ import { SellComponent } from './sell.component';
+ 
+@@ -8,7 +10,11 @@ describe('SellComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [SellComponent]
++      imports: [SellComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting()
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/service/guard.service.spec.ts b/src/app/service/guard.service.spec.ts
+index 8b3fd04..440233d 100644
+--- a/src/app/service/guard.service.spec.ts
++++ b/src/app/service/guard.service.spec.ts
+@@ -1,4 +1,7 @@
+ import { TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
+ 
+ import { GuardService } from './guard.service';
+ 
+@@ -6,7 +9,9 @@ describe('GuardService', () => {
+   let service: GuardService;
+ 
+   beforeEach(() => {
+-    TestBed.configureTestingModule({});
++    TestBed.configureTestingModule({
++      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter([])],
++    });
+     service = TestBed.inject(GuardService);
+   });
+ 
+diff --git a/src/app/supplier/supplier.component.spec.ts b/src/app/supplier/supplier.component.spec.ts
+index a8b5724..20add8c 100644
+--- a/src/app/supplier/supplier.component.spec.ts
++++ b/src/app/supplier/supplier.component.spec.ts
+@@ -1,4 +1,7 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
+ 
+ import { SupplierComponent } from './supplier.component';
+ 
+@@ -8,7 +11,12 @@ describe('SupplierComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [SupplierComponent]
++      imports: [SupplierComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting(),
++        provideRouter([])
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/transaction-details/transaction-details.component.spec.ts b/src/app/transaction-details/transaction-details.component.spec.ts
+index 7ff7516..d65d876 100644
+--- a/src/app/transaction-details/transaction-details.component.spec.ts
++++ b/src/app/transaction-details/transaction-details.component.spec.ts
+@@ -1,4 +1,8 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
++import { ActivatedRoute } from '@angular/router';
+ 
+ import { TransactionDetailsComponent } from './transaction-details.component';
+ 
+@@ -8,7 +12,13 @@ describe('TransactionDetailsComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [TransactionDetailsComponent]
++      imports: [TransactionDetailsComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting(),
++        provideRouter([]),
++        { provide: ActivatedRoute, useValue: { snapshot: { paramMap: { get: () => null } } } }
++      ]
+     })
+     .compileComponents();
+ 
+diff --git a/src/app/transaction/transaction.component.spec.ts b/src/app/transaction/transaction.component.spec.ts
+index c4968f4..6823b54 100644
+--- a/src/app/transaction/transaction.component.spec.ts
++++ b/src/app/transaction/transaction.component.spec.ts
+@@ -1,4 +1,7 @@
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
++import { provideHttpClient } from '@angular/common/http';
++import { provideHttpClientTesting } from '@angular/common/http/testing';
++import { provideRouter } from '@angular/router';
+ 
+ import { TransactionComponent } from './transaction.component';
+ 
+@@ -8,7 +11,12 @@ describe('TransactionComponent', () => {
+ 
+   beforeEach(async () => {
+     await TestBed.configureTestingModule({
+-      imports: [TransactionComponent]
++      imports: [TransactionComponent],
++      providers: [
++        provideHttpClient(),
++        provideHttpClientTesting(),
++        provideRouter([])
++      ]
+     })
+     .compileComponents();
+ 
